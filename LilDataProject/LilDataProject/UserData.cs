@@ -2,7 +2,8 @@
 
 namespace LilDataProject.Models
 {
-    public class UserData : IData
+
+    public class UserData 
     {
         public List<User> Users;
 

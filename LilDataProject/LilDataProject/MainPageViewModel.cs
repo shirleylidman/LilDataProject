@@ -10,32 +10,26 @@ namespace LilDataProject
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
-        LilDataProject.Models.IData data = new Data();
-        private LilDataProject.UserData _user;
+     
 
         public MainPageViewModel()
         {
-            _user = data.GetUser(1);
-
-           _ShowUser1Command = new Command(User1command);
-           _ShowUser2Command = new Command(User2command);
+            ShowUser1Command = new Command(async () => await Application.Current.MainPage.Navigation.PopAsync());
+            ShowUser2Command = new Command(async () => await Application.Current.MainPage.Navigation.PopAsync());
 
         }
 
-        private Command _ShowUser1Command;
-        private Command _ShowUser2Command;
-
         public Command ShowUser1Command
         {
-            get { return User1command}
+            get;
         }
 
         public Command ShowUser2Command
         {
-            get { return User2command}
+            get;
         }
 
-    string username;
+        string username;
         public string UserName
         {
             get => username;
@@ -54,7 +48,7 @@ namespace LilDataProject
         string userage;
         public string UserAge
         {
-            get => username;
+            get => userage;
             set
             {
                 if (userage != value)
