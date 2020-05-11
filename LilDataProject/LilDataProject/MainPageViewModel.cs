@@ -10,12 +10,20 @@ namespace LilDataProject
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
-     
 
         public MainPageViewModel()
         {
-            ShowUser1Command = new Command(async () => await Application.Current.MainPage.Navigation.PopAsync());
-            ShowUser2Command = new Command(async () => await Application.Current.MainPage.Navigation.PopAsync());
+
+            ShowUser1Command = new Command(() =>
+            {
+
+            });
+
+
+            ShowUser2Command = new Command(() =>
+            {
+
+            });
 
         }
 
