@@ -3,7 +3,7 @@
 namespace LilDataProject.Models
 {
 
-    public class UserData 
+    public class UserData : IData
     {
         public List<User> Users;
 
@@ -17,14 +17,14 @@ namespace LilDataProject.Models
             user1.Name = "Alyssa Ho";
             user1.Address = "1155 Coronet Ave";
             user1.Email = "alyssa@gmail.com";
-            user1.Age = 16;
+            user1.Age = "16";
             user1.PhoneNumber = "626-768-0273";
 
             User user2 = new User();
             user2.Name = "Desiree";
             user2.Address = "123 Main Ave";
             user2.Email = "desiree@yahoo.com";
-            user2.Age = 18;
+            user2.Age = "18";
             user2.PhoneNumber = "626-123-4567";
 
             Users.Add(user1);

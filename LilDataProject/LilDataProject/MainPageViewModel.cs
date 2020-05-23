@@ -4,40 +4,39 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
-
+using System.Windows.Input;
+using LilDataProject.Models;
+using Javax.Security.Auth;
 
 namespace LilDataProject
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        LilDataProject.Models.IData data = new UserData();
+        private LilDataProject.User _user;
+        private string username;
+        private string userage;
+        private string useremail;
+        private string useraddress;
+        private string userphonenumber;
+        
 
         public MainPageViewModel()
         {
+            _user = data.GetUser(1);
+            _user = data.GetUser(2);
 
-            ShowUser1Command = new Command(() =>
-            {
-
-            });
-
-
-            ShowUser2Command = new Command(() =>
-            {
-
-            });
+            username = _user.Name;
+            userage = _user.Age;
+            useremail = _user.Email;
+            useraddress = _user.Address;
+            userphonenumber = _user.PhoneNumber;
 
         }
 
-        public Command ShowUser1Command
-        {
-            get;
-        }
+     
 
-        public Command ShowUser2Command
-        {
-            get;
-        }
-
-        string username;
         public string UserName
         {
             get => username;
@@ -53,7 +52,6 @@ namespace LilDataProject
             }
         }
 
-        string userage;
         public string UserAge
         {
             get => userage;
@@ -69,7 +67,6 @@ namespace LilDataProject
             }
         }
 
-        string useremail;
         public string UserEmail
         {
             get => useremail;
@@ -85,15 +82,14 @@ namespace LilDataProject
             }
         }
 
-        string useradress;
         public string UserAdress
         {
-            get => useradress;
+            get => useraddress;
             set
             {
-                if (useradress!= value)
+                if (useraddress!= value)
                 {
-                    useradress= value;
+                    useraddress= value;
                     var args = new PropertyChangedEventArgs(nameof(UserAdress));
 
                     PropertyChanged?.Invoke(this, args);
@@ -101,7 +97,6 @@ namespace LilDataProject
             }
         }
 
-        string userphonenumber;
         public string UserPhoneNumber
         {
             get => userphonenumber;
@@ -117,9 +112,10 @@ namespace LilDataProject
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         
 
     }
+
+  
 }
    
